@@ -14,8 +14,4 @@
     <ProjectReference Include="..\..\VTU_Manager.Domain\VTU_Manager.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\Authentication\LoginUser\" />
-  </ItemGroup>
-
 </Project>

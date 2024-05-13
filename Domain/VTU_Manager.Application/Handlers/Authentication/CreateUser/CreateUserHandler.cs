@@ -50,18 +50,19 @@ namespace VTU_Manager.Application.Handlers.Authentication.CreateUser
                 Created = DateTime.Now
             };
 
-            var result = await userManager.CreateAsync(user, request.Password);
+            if (!errors.Any())
+            {
+                var result = await userManager.CreateAsync(user, request.Password);
 
-            if (result.Succeeded)
-            {
-                await userManager.AddToRoleAsync(user, USER_ROLE_NAME);
-            }
-            else
-            {
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, USER_ROLE_NAME);
+                }
+
                 errors.AddRange(result.Errors);
             }
 
-            return new CreateUserResp(user.Id, errors, true);
+            return new CreateUserResp(user.Id, errors, !errors.Any());
         }
     }
 

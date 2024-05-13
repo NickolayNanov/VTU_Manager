@@ -22,7 +22,7 @@ namespace VTU_Manager.Web.Components.Account
 
         private readonly PersistingComponentStateSubscription subscription;
 
-        private Task<AuthenticationState>? authenticationStateTask;
+        private Task<AuthenticationState> authenticationStateTask;
 
         public PersistingRevalidatingAuthenticationStateProvider(
             ILoggerFactory loggerFactory,

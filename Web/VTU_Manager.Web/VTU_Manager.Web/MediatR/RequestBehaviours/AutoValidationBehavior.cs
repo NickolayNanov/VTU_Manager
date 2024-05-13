@@ -6,11 +6,11 @@ using VTU_Manager.Domain.Interfaces.Validators;
 namespace VTU_Manager.Web.MediatR.RequestBehaviours
 {
     public class AutoValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : class, IRequest
+        where TRequest : class
     {
-        private readonly IEnumerable<IApplicationValidator<TRequest>> validators;
+        private readonly IEnumerable<IValidator<TRequest>> validators;
 
-        public AutoValidationBehavior(IEnumerable<IApplicationValidator<TRequest>> validators)
+        public AutoValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
         {
             this.validators = validators;
         }
