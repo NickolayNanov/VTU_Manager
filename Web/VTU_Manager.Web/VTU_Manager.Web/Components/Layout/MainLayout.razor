@@ -1,28 +1,50 @@
 ﻿@using MudBlazor
-@inherits LayoutComponentBase
+@inherits MainLayoutBase
 
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<div class="page">
-    <div class="sidebar">
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@SideBarDisplayIcon" Color="Color.Inherit" Edge="Edge.Start" OnClick="@OnNavbarIconClick" />
+        <MudSpacer />
+        <AuthorizeView>
+            <Authorized>
+                <MudText Typo="Typo.h6" Class="px-4">Здравейте, @context.User.Identity.Name</MudText>
+                    <MudButton Color="Color.Warning"
+                               Variant="Variant.Filled"
+                               DisableElevation="true"
+                               OnClick="Logout">
+                        Изход
+                    </MudButton>
+            </Authorized>
+            <NotAuthorized>
+                    <MudButtonGroup Size="Size.Large" Color="Color.Warning" Variant="Variant.Filled" DisableElevation="true">
+                        <NavLink class="nav-link" href="Account/Login">
+                            <span class="bi bi-person-badge-nav-menu" aria-hidden="true">
+                                Вход
+                            </span>    
+                        </NavLink>
+                        <NavLink class="nav-link" href="Account/Register">
+                            <span class="bi bi-person-badge-nav-menu" aria-hidden="true">
+                                Регистрация
+                            </span>
+                        </NavLink>
+                    </MudButtonGroup>
+            </NotAuthorized>
+        </AuthorizeView>
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Велико Търново</MudText>
+        </MudDrawerHeader>
+        <img src="./logo.png" />
         <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
             @Body
-        </article>
-    </main>
-</div>
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

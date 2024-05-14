@@ -7,10 +7,6 @@ namespace VTU_Manager.Application.Handlers.Authentication.CreateUser
         public CreateUserValidator()
         {
             this.RuleFor(x => x.Email)
-                .Must(x => !x.EndsWith(".com"))
-                    .WithMessage("uraa");
-
-            this.RuleFor(x => x.Email)
                         .NotNull()
                             .WithMessage("Can't be null Email")
                         .NotEmpty()
