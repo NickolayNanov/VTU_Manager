@@ -9,7 +9,7 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
 
-builder.Services.AddMudServices();
+builder.Services.AddMudServices().AddMudBlazorDialog();
 
 
 await builder.Build().RunAsync();

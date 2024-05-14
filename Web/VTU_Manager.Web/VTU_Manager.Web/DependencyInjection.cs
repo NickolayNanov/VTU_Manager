@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 using VTU_Manager.Application;
 using VTU_Manager.Domain.Entities;
 using VTU_Manager.Domain.Interfaces.Repositories;
@@ -29,6 +30,8 @@ namespace VTU_Manager.Web
             services.AddRazorComponents()
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
+
+            services.AddMudServices().AddMudBlazorDialog();
 
             builder.Services.AddHttpContextAccessor();
 

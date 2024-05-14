@@ -1,7 +1,71 @@
 ﻿@page "/"
+@using MudBlazor
 
-<PageTitle>Home</PageTitle>
+<MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+    <MudCarouselItem Transition="transition" Color="@Color.Primary">
+        <div class="d-flex" style="height:100%">
+            <MudImage Src="./images/vtu-image-1.jpg" Alt="Mony the dog" Elevation="25" Class="mud-width-full rounded-lg" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="@Color.Secondary">
+        <div class="d-flex" style="height:100%">
+            <MudImage Src=".\images\vtu-image-2.jpg" Alt="Mony the dog" Elevation="25" Class="mud-width-full rounded-lg" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudImage Src=".\images\vtu-image-3.jpg" Alt="Mony the dog" Elevation="25" Class="mud-width-full rounded-lg" />
+        </div>
+    </MudCarouselItem>
+</MudCarousel>
 
-<h1>Hello, world!</h1>
+<MudElement Class="mud-width-full">
+    <MudText Typo="Typo.h3">Упътване за системата</MudText>
 
-Welcome to your new app.
+    <MudText Typo="Typo.h5">Навигация в системата</MudText>
+    <MudText Typo="Typo.body1">
+        За да достъпите различните страници на системата, използвайте страничното меню в лявата част на вашия екран.
+        При нужда, може да въведете желаната от вас страницата в адресната лента ( за пример - Списък на проекти съответства на /projects).
+    </MudText>
+
+    <MudText Typo="Typo.h5">Списък на проекти към университета</MudText>
+    <MudText Typo="Typo.body1">
+        В този раздел ще може да получите в табличен вид всички въведени проекти към Великотърновския университет.
+        Ще разполагате със следните бутони за действия върху проектите: Прегледай, Промени, Изтрий.
+        Избирайки бутона Прегледай, ще имате възможност да видите данните за съответния проект в защитен режим, който не позволява промени по страницата, с цел защита от непредвидени промени.
+        Избирайки бутона Промени, ще ви се отвори същият прозорец с данни, подобен на Прегледай, но този път ще имате възможност да промените данните на проекта
+        Бутонът Изтрий служи за изтриване на проекта, когато той вече не е нужен за системата.
+    </MudText>
+
+    <MudText Typo="Typo.h5">Добавяне на проект</MudText>
+    <MudText Typo="Typo.body1">
+        За да добавите проект, изберете в страничната лента първо секция Проекти, след което от падащото меню изберете Добави проект.
+        Ще ви се визуализира формуляр, който трябва правилно да попълните ( при възникнали грешки, пропуснати полета и неправилен формат на данните ще получите червени съобщения, които ще ви посочат съответната грешка под полето, което попълвате). Ако правилно сте попълнили данните, ще получите тикче за всяко поле
+        Накрая изберете бутона Запази, при което ще бъдете пренасочени обратно на страницата за списък на проекти. Там ще бъде обновен списъка и ще може да достъпите новия проект.
+    </MudText>
+
+    <MudText Typo="Typo.h5">Списък на протоколи</MudText>
+    <MudText Typo="Typo.body1">
+        За да достъпите този раздел, първо избирате Антиплагиат в страничното меню, после избирате Списък на протоколи.
+        Ще получите в табличен вид всички протоколи, аналогично на списъка на проекти, като ще имате право на Сваляне, Изтриване и Промяна на протоколите.
+    </MudText>
+
+    <MudText Typo="Typo.h5">Добавяне на протокол</MudText>
+    <MudText Typo="Typo.body1">
+        За да добавите протокол, първо избирате Антиплагиат, след това избирате Добавяне на протокол. Ще трябва да въведете кратък формуляр, който ще има защити на полетата, подобни на тези при Добавяне на проект.
+    </MudText>
+
+    <MudText Typo="Typo.h5">Изход от системата</MudText>
+    <MudText Typo="Typo.body1">
+        Когато сте готови с работата си в системата, изберете бутончето Изход в страничното меню. По този начин вие ще напуснете своя профил и ще се наложи следващия път наново да въведете емайл и парола за повторен достъп.
+    </MudText>
+
+</MudElement>
+
+@code {
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Fade;
+}
